@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<h1>Form</h1>
+<form action="#" th:action="@{/generateId}" th:object="${user}" method="POST">
+
+<button type="submit" class="btn btn-primary btn-sm mb-3">save</button>
+</form>
+</div>
+</body>
+</html>
