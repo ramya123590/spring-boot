@@ -16,6 +16,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -24,6 +25,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 public class PatientRegistration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

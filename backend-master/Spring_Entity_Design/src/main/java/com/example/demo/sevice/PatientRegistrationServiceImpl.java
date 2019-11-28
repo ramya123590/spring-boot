@@ -92,6 +92,12 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 		
 		
 		}
+
+	@Override
+	public PatientRegistration getPatientbyuserid(String userid) {
+		// TODO Auto-generated method stub
+		return patientRegistrationrepository.findByUserId(userid);
+	}
 		
 
 }

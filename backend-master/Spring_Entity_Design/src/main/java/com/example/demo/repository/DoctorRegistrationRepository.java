@@ -12,4 +12,6 @@ import com.example.demo.entity.DoctorRegistration;
 @Repository
 public interface DoctorRegistrationRepository extends JpaRepository<DoctorRegistration, Integer>{
 	 List<DoctorRegistration> findByBranchContainsAndSpecialistContainsAllIgnoreCase(String branch, String specialist);
+	
+	 
 }

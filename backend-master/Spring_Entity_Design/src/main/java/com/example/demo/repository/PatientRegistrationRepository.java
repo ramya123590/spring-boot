@@ -14,5 +14,6 @@ public interface PatientRegistrationRepository extends JpaRepository<PatientRegi
 
 	public PatientRegistration findByEmail(
 			String theEmail);
+	public PatientRegistration findByUserId(String userid);
 
 }

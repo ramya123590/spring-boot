@@ -17,4 +17,5 @@ public interface DoctorRegistrationService {
 	public DoctorRegistration updateDoctorRegistration(DoctorRegistration patient) ;
 	public List<DoctorRegistration> getDoctorSchedule(String branch, String specialist);
 
+
 }

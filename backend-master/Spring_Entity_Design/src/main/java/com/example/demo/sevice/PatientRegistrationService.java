@@ -19,5 +19,6 @@ public interface PatientRegistrationService {
 	
 	public PatientRegistration getPatientLogindetails(String email);
 	public boolean checkPass(String email, String password) ;
+	public PatientRegistration getPatientbyuserid(String userid);
 
 }

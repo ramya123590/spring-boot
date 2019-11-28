@@ -32,11 +32,11 @@
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring-form.tld" project="Spring_Entity_Design"/>
+      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring-form.tld" project="demo1_thymeleaf"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring.tld" project="Spring_Entity_Design"/>
+      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring.tld" project="demo1_thymeleaf"/>
     </library>
    </libraries>
   </path>
@@ -104,7 +104,10 @@
   <path value="C:/Users/b8ibmjava13/.m2/repository/org/hibernate/hibernate-core/5.3.13.Final/hibernate-core-5.3.13.Final.jar"/>
   <path value="C:/Users/b8ibmjava13/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar"/>
  </paths>
- <includes/>
+ <validation>
+  <el/>
+ </validation>
  <aliases/>
+ <includes/>
  <uris/>
 </kb-project>
