@@ -40,36 +40,12 @@ public class DoctorRegistration {
 	private int doctor_id;
 	@Column(name = "first_name")
 	private String firstName;
-	
 	@Column(name = "last_name")
 	private String lastName;
-	
-	
-	
 	@Column(name = "specialist")
 	private String specialist;
-	
-	
 	@Column(name = "branch")
 	private String branch;
-	
-	
 	@Column(name = "fee")
 	private long fee;
-	
-	/*
-	 * @JsonIgnore
-	 * 
-	 * @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST,
-	 * CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	 * 
-	 * @JoinTable(name = "Appiontment_schedule", joinColumns = @JoinColumn(name =
-	 * "doctor_id"), inverseJoinColumns = @JoinColumn(name = "schedule_id")) private
-	 * List<DoctorSchedule> doctorSchedule;
-	 */
-	/*
-	 * @Column(name = "photo") private Blob photo;
-	 */
-	
-
 }

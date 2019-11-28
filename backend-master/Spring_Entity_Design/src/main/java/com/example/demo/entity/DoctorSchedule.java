@@ -41,12 +41,4 @@ public class DoctorSchedule {
 	@Column(name = "time")
 	private Time Time;
 	
-	/*
-	 * @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST,
-	 * CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	 * 
-	 * @JoinTable(name = "Appiontment_schedule", joinColumns = @JoinColumn(name =
-	 * "schedule_id"), inverseJoinColumns = @JoinColumn(name = "doctor_id")) private
-	 * List<DoctorRegistration> doctorregistration;
-	 */
-}
+	}
