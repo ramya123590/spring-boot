@@ -16,6 +16,6 @@ public interface DoctorRegistrationService {
 	public void deleteDoctorRegistrationById(int theId);
 	public DoctorRegistration updateDoctorRegistration(DoctorRegistration patient) ;
 	public List<DoctorRegistration> getDoctorSchedule(String branch, String specialist);
-
+public DoctorRegistration findbydoctorid(int id);
 
 }

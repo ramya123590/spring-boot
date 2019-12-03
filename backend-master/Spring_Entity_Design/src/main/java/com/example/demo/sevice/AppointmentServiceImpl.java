@@ -1,5 +1,6 @@
 package com.example.demo.sevice;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Appointment;
+import com.example.demo.entity.DoctorRegistration;
 import com.example.demo.entity.PatientRegistration;
 import com.example.demo.repository.AppointmentRepository;
 
@@ -58,5 +60,20 @@ public class AppointmentServiceImpl implements AppointmentService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	@Transactional
+	public Appointment findbydoctorandslot(DoctorRegistration doctor, String slot,Date date) {
+		// TODO Auto-generated method stub
+		return Appointmentrepository.findBySlotAndDateAndDoctorregistration(slot,date, doctor);
+	}
+
+	@Override
+	public List<Appointment> findbypatient(PatientRegistration patient) {
+		// TODO Auto-generated method stub
+		return Appointmentrepository.findByPatientregistration(patient);
+	}
+
+	
 
 }

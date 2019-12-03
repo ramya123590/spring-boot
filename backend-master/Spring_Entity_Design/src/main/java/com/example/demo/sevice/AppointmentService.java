@@ -1,9 +1,12 @@
 package com.example.demo.sevice;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.entity.Appointment;
+import com.example.demo.entity.DoctorRegistration;
+import com.example.demo.entity.PatientRegistration;
 
 public interface AppointmentService {
 	
@@ -16,5 +19,9 @@ public interface AppointmentService {
 	public void deleteAppointmentById(int theId);
 
 	public Appointment updatepatientregistration(Appointment appointment);
+
+
+	Appointment findbydoctorandslot(DoctorRegistration doctor, String slot,Date date);
+	List<Appointment> findbypatient(PatientRegistration patient);
 
 }

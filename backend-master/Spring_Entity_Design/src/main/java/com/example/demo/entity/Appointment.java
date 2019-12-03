@@ -20,6 +20,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -35,10 +36,15 @@ import lombok.ToString;
 @Table(name = "appointment")
 @AllArgsConstructor
 @NoArgsConstructor
+
 @Setter
 @Getter
 
+
 public class Appointment {
+	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -51,7 +57,7 @@ public class Appointment {
 	@Column(name = "isfeepaid")
 	private boolean isfeepaid;
 	
-	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@OneToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
 			CascadeType.REFRESH })
 	@JoinColumn(name = "patient_id")
@@ -63,14 +69,14 @@ public class Appointment {
 
 	
 
-	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@OneToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
 			CascadeType.REFRESH })
 	@JoinColumn(name = "doctor_id")
 	private DoctorRegistration doctorregistration;
 
-
-
+	
+	
 
 	@Override
 	public String toString() {

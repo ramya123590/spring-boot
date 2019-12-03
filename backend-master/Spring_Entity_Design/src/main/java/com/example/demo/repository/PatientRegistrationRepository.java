@@ -12,8 +12,7 @@ import com.example.demo.entity.PatientRegistration;
 @Repository
 public interface PatientRegistrationRepository extends JpaRepository<PatientRegistration, Integer>{
 
-	public PatientRegistration findByEmail(
-			String theEmail);
+	public PatientRegistration findByEmail(String theEmail);
 	public PatientRegistration findByUserId(String userid);
 
 }

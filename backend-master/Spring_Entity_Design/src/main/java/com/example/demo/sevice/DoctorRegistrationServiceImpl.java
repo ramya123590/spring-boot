@@ -64,4 +64,10 @@ public class DoctorRegistrationServiceImpl implements DoctorRegistrationService 
 		return doctorRegistrationrepository.findByBranchContainsAndSpecialistContainsAllIgnoreCase(branch, specialist);
 	}
 
+	@Override
+	public DoctorRegistration findbydoctorid(int id) {
+		// TODO Auto-generated method stub
+		return doctorRegistrationrepository.findByDoctorId(id);
+	}
+
 }

@@ -15,9 +15,13 @@ import lombok.ToString;
 @ToString
 public class Appointmodel {
 
-	private int id;
+private int id;
+	
+	
 	private Date date;
+
 	private String slot;
+	
 	private boolean isfeepaid;
 	private String patient_id;
 	private int doctor_id;

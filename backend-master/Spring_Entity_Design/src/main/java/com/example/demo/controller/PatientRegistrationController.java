@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,25 +19,24 @@ import com.example.demo.entity.Login;
 import com.example.demo.entity.PatientRegistration;
 import com.example.demo.sevice.PatientRegistrationService;
 
-@RestController
+
+@RestController @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class PatientRegistrationController {
 
     @Autowired
     private PatientRegistrationService patientRegistrationService;
     
-    private String hashPassword(String plainTextPassword){
-		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
-	}
+  
     @PostMapping("/patientregister")
     public PatientRegistration create(@RequestBody PatientRegistration patient){
-    	
-    		patient.setPassword(hashPassword(patient.getPassword()));
-    		
     
-    	
-    	
         return patientRegistrationService.savePatientRegistration(patient);
+    }
+    @PostMapping("/findbyuserid")
+    public PatientRegistration findbyid(@RequestBody PatientRegistration login){
+    
+        return patientRegistrationService.getPatientbyuserid(login.getUserId());
     }
 
     @GetMapping(path = {"/patientregister/{id}"})
@@ -44,9 +44,11 @@ public class PatientRegistrationController {
         return patientRegistrationService.getPatientRegistrationById(id);
     }
 
-    @PutMapping("/patientregister")
-    public PatientRegistration update(@RequestBody PatientRegistration user){
-        return patientRegistrationService.updatepatientregistration(user);
+    @PutMapping("/patientregister/{id}")
+    public PatientRegistration update(@PathVariable("id") String id, @RequestBody PatientRegistration user){
+    
+        return patientRegistrationService.updatepatientregistration(id,user);
+        
     }
 
     @DeleteMapping(path ={"/patientregister/{id}"})
@@ -64,12 +66,14 @@ public class PatientRegistrationController {
        return patientRegistrationService.getPatientLogindetails(user.getEmail());
     }
     
-    @PostMapping("/loginvaliadtion")
-    public boolean findLogin(@RequestBody Login login){
-    	System.out.println(login.getUserId());
-    	System.out.println(login.getPassword());
-        boolean s= patientRegistrationService.checkPass(login.getUserId(), login.getPassword());
-        System.out.println(s);
-        return s;
+
+    @PostMapping("/patientregister/validation")
+    public boolean findLogin(@RequestBody Login user1){
+  	  String email = user1.getUserId();
+  	  String password = user1.getPassword();
+  	  
+  	  System.out.println(email);
+  	  System.out.println(password);
+     	return patientRegistrationService.checkPass(email, password);
     }
 }
