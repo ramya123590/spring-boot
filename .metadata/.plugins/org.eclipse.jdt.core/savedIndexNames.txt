@@ -203,7 +203,6 @@ INDEX VERSION 1.131+C:\Users\b8ibmjava13\fin\.metadata\.plugins\org.eclipse.jdt.
 4173026767.index
 978576312.index
 3131796730.index
-3071830799.index
 158059529.index
 2105533550.index
 1513274158.index

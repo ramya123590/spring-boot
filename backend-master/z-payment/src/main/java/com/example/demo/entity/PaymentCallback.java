@@ -1,12 +1,7 @@
 package com.example.demo.entity;
 
 import javax.persistence.Entity;
-
 import com.example.demo.util.PaymentMode;
-
-
-
-
 public class PaymentCallback {
 
     private String txnid;
