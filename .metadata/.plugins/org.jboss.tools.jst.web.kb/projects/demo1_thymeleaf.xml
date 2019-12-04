@@ -32,11 +32,11 @@
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring-form.tld" project="demo1_thymeleaf"/>
+      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring-form.tld" project="Spring_Entity_Design"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring.tld" project="demo1_thymeleaf"/>
+      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring.tld" project="Spring_Entity_Design"/>
     </library>
    </libraries>
   </path>

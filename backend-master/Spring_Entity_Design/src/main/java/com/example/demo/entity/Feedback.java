@@ -20,20 +20,23 @@ public class Feedback {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer feedback_id;
 	
+	@Column(name = "name")
+	private String name;
+	
 	@Column(name = "feedback_message")
 	private String feedbackMessage;
 	
-	@Column(name = "rate")
-	private Integer rate;
+	@Column(name = "experience")
+	private String experience;
 	
-	@Column(name = "user_mail")
-	private String userMail;
+	
 
-	public Feedback(String feedbackMessage, Integer rate, String userMail) {
+	public Feedback(String name,String feedbackMessage, String experience) {
 		super();
+		this.name = name;
 		this.feedbackMessage = feedbackMessage;
-		this.rate = rate;
-		this.userMail = userMail;
+		this.experience = experience;
+		
 	}
 		
 }

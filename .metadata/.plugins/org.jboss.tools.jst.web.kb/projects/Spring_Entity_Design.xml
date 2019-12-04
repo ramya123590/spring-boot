@@ -74,11 +74,11 @@
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring-form.tld" project="demo1_thymeleaf"/>
+      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring-form.tld" project="Spring_Entity_Design"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring.tld" project="demo1_thymeleaf"/>
+      path="FileSystems/lib-spring-webmvc-5.1.11.RELEASE.jar/meta-inf/spring.tld" project="Spring_Entity_Design"/>
     </library>
    </libraries>
   </path>
@@ -119,7 +119,10 @@
   <path value="C:/Users/b8ibmjava13/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.1.10.RELEASE/spring-boot-starter-test-2.1.10.RELEASE.jar"/>
   <path value="C:/Users/b8ibmjava13/.m2/repository/javax/transaction/javax.transaction-api/1.3/javax.transaction-api-1.3.jar"/>
  </paths>
- <includes/>
+ <validation>
+  <el/>
+ </validation>
  <aliases/>
+ <includes/>
  <uris/>
 </kb-project>

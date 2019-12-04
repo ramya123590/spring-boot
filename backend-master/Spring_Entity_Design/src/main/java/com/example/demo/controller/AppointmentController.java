@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,9 +62,12 @@ public class AppointmentController {
     	app.setIsfeepaid(appointment.isIsfeepaid());
     	System.out.println(app);
     	mail.setTo(patientregistraion.getEmail());
-    	
-		mail.setSubject("Appointment details");
-		mail.setText("hi"+patientregistraion.getFirstName()+"\ndate"+app.getDate()+"\ntime:"+app.getSlot()+"Kindly visit");
+    	Date a=app.getDate();
+    	DateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy");
+    	String output = outputFormatter.format(a);
+		mail.setSubject("Appointment with People's Health");
+		mail.setText("Dear "+patientregistraion.getFirstName()+",\n Your appointment with Dr."+doctorregistration.getFirstName()+doctorregistration.getLastName()+
+				"("+doctorregistration.getSpecialist()+") confirmed for "+output+" slot: "+app.getSlot()+". Please visit the hospital 30 mins before the scheduled time.");
 
 		javaMailSender.send(mail);
         return appointmentService.saveAppointment(app);
