@@ -39,7 +39,32 @@ public class AppointmentController {
     @Autowired
     private JavaMailSender javaMailSender;
 
+    @PostMapping("/appointments")
+    public String notavailable(@RequestBody Appointmodel appointment){
+    	System.out.println(appointment.getDoctor_id());
+    	DoctorRegistration doctorregistration=doctorRegistrationService.findbydoctorid(appointment.getDoctor_id());
+    
+    	List<Appointment> app=appointmentService.findbydoctoranddate(doctorregistration,appointment.getDate() );
+    	System.out.println(doctorregistration);
+    	System.out.println("helloo");
+    	System.out.println(app);
+    	for(Appointment temp: app){
+    		System.out.println("hel"+temp.getPatientregistration());
+    		
+    		SimpleMailMessage mail = new SimpleMailMessage();
+    		mail.setTo(temp.getPatientregistration().getEmail());
+        	
+    		mail.setSubject("Appointment details");
+    		mail.setText("Hi "+temp.getPatientregistration().getFirstName()+"\n date"+temp.getDate()+"\n time:"+temp.getSlot()+" canceled");
+
+    		javaMailSender.send(mail);
+    		System.out.println("app:"+temp.getId());
+    		appointmentService.deleteAppointmentById(temp.getId());
+    	}
+    	
+    	return "hello" ;
    
+    }
 
 	@PostMapping("/appointment")
     public Appointment create(@RequestBody Appointmodel appointment){
@@ -62,12 +87,9 @@ public class AppointmentController {
     	app.setIsfeepaid(appointment.isIsfeepaid());
     	System.out.println(app);
     	mail.setTo(patientregistraion.getEmail());
-    	Date a=app.getDate();
-    	DateFormat outputFormatter = new SimpleDateFormat("MM/dd/yyyy");
-    	String output = outputFormatter.format(a);
-		mail.setSubject("Appointment with People's Health");
-		mail.setText("Dear "+patientregistraion.getFirstName()+",\n Your appointment with Dr."+doctorregistration.getFirstName()+doctorregistration.getLastName()+
-				"("+doctorregistration.getSpecialist()+") confirmed for "+output+" slot: "+app.getSlot()+". Please visit the hospital 30 mins before the scheduled time.");
+    	
+		mail.setSubject("Appointment details");
+		mail.setText("hi"+patientregistraion.getFirstName()+"\ndate"+app.getDate()+"\ntime:"+app.getSlot()+"Kindly visit");
 
 		javaMailSender.send(mail);
         return appointmentService.saveAppointment(app);
@@ -99,7 +121,7 @@ public class AppointmentController {
     	DoctorRegistration doctorregistration=doctorRegistrationService.findbydoctorid(appointment.getDoctor_id());
 
     	Appointment app=appointmentService.findbydoctorandslot(doctorregistration,appointment.getSlot(),appointment.getDate());
-    	System.out.println(app);
+    	System.out.println("date"+appointment.getDate());
     	System.out.println(app);
     	boolean result;
     	if(app!=null) {

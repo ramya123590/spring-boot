@@ -23,5 +23,6 @@ public interface AppointmentService {
 
 	Appointment findbydoctorandslot(DoctorRegistration doctor, String slot,Date date);
 	List<Appointment> findbypatient(PatientRegistration patient);
+	List<Appointment> findbydoctoranddate(DoctorRegistration doctor, Date date);
 
 }

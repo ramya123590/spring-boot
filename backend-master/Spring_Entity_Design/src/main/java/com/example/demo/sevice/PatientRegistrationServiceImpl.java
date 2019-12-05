@@ -8,6 +8,8 @@ import javax.transaction.Transactional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ import com.example.demo.repository.PatientRegistrationRepository;
 
 @Service
 public class PatientRegistrationServiceImpl implements PatientRegistrationService {
+	@Autowired
+	private JavaMailSender javaMailSender;
 
 	@Autowired
 	PatientRegistrationRepository patientRegistrationrepository;
@@ -42,6 +46,14 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 		thePatientRegistration.setUserId(saltStr);
 		// theuser.setPid(saltStr);
 		System.out.print("saltStr");
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(thePatientRegistration.getEmail());
+		
+		mail.setSubject("Patient Id");
+		mail.setText("Dear "+thePatientRegistration.getFirstName()+"\n Your Account has been registered with patient Id: "+saltStr+"\nThank You");
+		
+		javaMailSender.send(mail);
+		
 		
 
 	

@@ -54,6 +54,10 @@ public class DoctorRegistration {
 	private String branch;
 	
 	
+	@Column(name = "photo")
+	private String photo;
+	
+	
 	@Column(name = "fee")
 	private long fee;
 	

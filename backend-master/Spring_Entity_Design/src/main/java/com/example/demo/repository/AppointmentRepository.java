@@ -17,5 +17,6 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
 	 //@Query("select a from Appointment a where doctor_id=?1 and slot=?2")
 	Appointment findBySlotAndDateAndDoctorregistration(String time,Date date,DoctorRegistration doctor) ;
 	List<Appointment> findByPatientregistration(PatientRegistration patient) ;
+	List<Appointment> findByDateAndDoctorregistration(Date date,DoctorRegistration doctor) ;
 }
 
