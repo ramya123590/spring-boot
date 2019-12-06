@@ -136,5 +136,30 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 		// TODO Auto-generated method stub
 		return patientRegistrationrepository.findByUserId(userid);
 	}
+	
+	public void getResetlink(String email)
+	{
+		SimpleMailMessage mail = new SimpleMailMessage();
+		
+			mail.setTo(email);
+			mail.setSubject("Reset Password");
+			mail.setText("To complete the password reset process, please click here: http://localhost:4200/resetPassword ");
+			javaMailSender.send(mail);
+		
+		
+		
+	}
+
+	@Override
+	public PatientRegistration setResetPassword(PatientRegistration thePatientRegistration) {
+		// TODO Auto-generated method stub
+		PatientRegistration password =patientRegistrationrepository.findByEmail(thePatientRegistration.getEmail());
+		System.out.println(password);
+			   BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		       String newPassword = passwordEncoder.encode(thePatientRegistration.getPassword());
+		       password.setPassword(newPassword);
+				return patientRegistrationrepository.save(password);
+				}
+
 
 }

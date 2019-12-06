@@ -21,7 +21,8 @@ public interface PatientRegistrationService {
 	public boolean checkPass(String userid, String password) ;
 	public PatientRegistration getPatientbyuserid(String userid);
 	
-	
+	public void getResetlink(String email);
+	public PatientRegistration setResetPassword(PatientRegistration thePatientRegistration);
 
 }
 

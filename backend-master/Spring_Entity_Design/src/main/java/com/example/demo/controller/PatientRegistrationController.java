@@ -19,7 +19,10 @@ import com.example.demo.entity.Login;
 import com.example.demo.entity.PatientRegistration;
 import com.example.demo.sevice.PatientRegistrationService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+@Api(value = "Swagger2DemoRestController", description = "REST Apis related to Student Entity!!!!")
 @RestController @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class PatientRegistrationController {
@@ -27,7 +30,7 @@ public class PatientRegistrationController {
     @Autowired
     private PatientRegistrationService patientRegistrationService;
     
-  
+   
     @PostMapping("/patientregister")
     public PatientRegistration create(@RequestBody PatientRegistration patient){
     
@@ -51,11 +54,21 @@ public class PatientRegistrationController {
         
     }
 
+    @PostMapping(path = {"/patientregister/{email}"})
+    public void findOne(@PathVariable("email") String email,PatientRegistration patient){
+   
+    	patientRegistrationService.getResetlink(email);
+    }
+    @PostMapping("/resetpassword")
+    public PatientRegistration updatePassword(@RequestBody PatientRegistration patient){
+    
+        return patientRegistrationService.setResetPassword(patient);
+    }
     @DeleteMapping(path ={"/patientregister/{id}"})
     public void delete(@PathVariable("id") int id) {
          patientRegistrationService.deletePatientRegistrationById(id);
     }
-
+    @ApiOperation(value = "Get specific Patient in the System ", response = PatientRegistration.class, tags = "patientregister")
     @GetMapping("/patientregister")
     public List<PatientRegistration> findAll(){
         return patientRegistrationService.getPatientRegistrations();
