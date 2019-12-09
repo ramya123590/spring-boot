@@ -38,7 +38,7 @@ public class PatientRegistration {
 	@ApiModelProperty(notes = "First Name",name="firstName",required=true,value="test name")
 	@Column(name = "first_name")
 	private String firstName;
-	@ApiModelProperty(notes = "Middle Name",name="middleNam",required=true,value="test name")
+	@ApiModelProperty(notes = "Middle Name",name="middleName",required=true,value="test name")
 	@Column(name = "middle_name")
 	private String middleName;
 	@ApiModelProperty(notes = "Last Name",name="lastName",required=true,value="test name")

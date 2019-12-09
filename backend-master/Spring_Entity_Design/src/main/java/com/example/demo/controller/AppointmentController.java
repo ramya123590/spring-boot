@@ -89,7 +89,7 @@ public class AppointmentController {
     	mail.setTo(patientregistraion.getEmail());
     	
 		mail.setSubject("Appointment details");
-		mail.setText("hi"+patientregistraion.getFirstName()+"\ndate"+app.getDate()+"\ntime:"+app.getSlot()+"Kindly visit");
+		mail.setText("Hi "+patientregistraion.getFirstName()+",\n Your appointment has been confirmed. +\n date"+app.getDate()+"\n time:"+app.getSlot()+"Kindly visit the hospital");
 
 		javaMailSender.send(mail);
         return appointmentService.saveAppointment(app);
