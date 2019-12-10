@@ -32,10 +32,7 @@ public class BranchController {
         return branchService.getAllBranch();
     }
     
-    @GetMapping("/branch/names")
-    public List<String> getAllBranchNames() {
-        return branchService.findNames();
-    }
+  
 
     @GetMapping("/branch/{id}")
     public ResponseEntity<Branch> getBranchById(@PathVariable(value = "id") Integer branchId)
@@ -46,6 +43,12 @@ public class BranchController {
     @PostMapping("/branch")
     public Branch createBranch(@Valid @RequestBody Branch branch) {
         return branchService.createBranch(branch);
+        
+    }
+    
+    @GetMapping("/branch/names")
+    public List<String> getAllSpecialistNames() {
+        return branchService.findNames();
     }
 
     @PutMapping("/branch/{id}")

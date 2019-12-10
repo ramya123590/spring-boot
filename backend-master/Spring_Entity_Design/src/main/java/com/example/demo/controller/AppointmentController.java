@@ -55,11 +55,12 @@ public class AppointmentController {
     		mail.setTo(temp.getPatientregistration().getEmail());
         	
     		mail.setSubject("Appointment details");
-    		mail.setText("Hi "+temp.getPatientregistration().getFirstName()+"\n date"+temp.getDate()+"\n time:"+temp.getSlot()+" canceled");
+    		mail.setText("Hi "+temp.getPatientregistration().getFirstName()+" , \n Your Appointment on date : "+temp.getDate()+"\n time: "+temp.getSlot()+" \n has been changed due unavailabilty of the doctor selected by you. "
+    				+ "we have scheducled you to the doctor available on that day . For futher details please contact hospital deskboard. Sorry for the inconvenience caused. \n \n thank you \n \n Peoples Health Hospital \n ph:080-8679021 \n mob:989778388 ");
 
     		javaMailSender.send(mail);
     		System.out.println("app:"+temp.getId());
-    		appointmentService.deleteAppointmentById(temp.getId());
+    		//appointmentService.deleteAppointmentById(temp.getId());
     	}
     	
     	return "hello" ;
@@ -89,7 +90,7 @@ public class AppointmentController {
     	mail.setTo(patientregistraion.getEmail());
     	
 		mail.setSubject("Appointment details");
-		mail.setText("Hi "+patientregistraion.getFirstName()+",\n Your appointment has been confirmed. +\n date"+app.getDate()+"\n time:"+app.getSlot()+"Kindly visit the hospital");
+		mail.setText("Hi "+patientregistraion.getFirstName()+",\n Your appointment has been confirmed. +\n date"+app.getDate()+"\n time:"+app.getSlot()+"Kindly visit the hospital \n \n thank you \n \n Peoples Health Hospital \n ph:080-8679021 \n mob:989778388");
 
 		javaMailSender.send(mail);
         return appointmentService.saveAppointment(app);
